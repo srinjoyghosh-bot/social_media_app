@@ -93,7 +93,11 @@ class _PostCardState extends State<PostCard> {
                                           vertical: 12, horizontal: 16),
                                       child: Text(e),
                                     ),
-                                    onTap: () {},
+                                    onTap: () async {
+                                      FirestoreMethods()
+                                          .deletePost(widget.snap['postId']);
+                                      Navigator.of(context).pop();
+                                    },
                                   ),
                                 )
                                 .toList(),
